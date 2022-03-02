@@ -7,21 +7,19 @@ import { listCategoriesController } from "../modules/cars/useCases/listCategorie
 
 const categoriesRoutes = Router();
 const upload = multer({
-    dest: "./tmp"
+    dest: "./tmp",
 });
 
 categoriesRoutes.post("/", (req, res) => {
     return createCategoryController.handle(req, res);
-})
+});
 
 categoriesRoutes.get("/", (req, res) => {
     return listCategoriesController.handle(req, res);
-})
+});
 
-categoriesRoutes.post("/import", upload.single("file"), (req, res) => { 
+categoriesRoutes.post("/import", upload.single("file"), (req, res) => {
     return importCategoryController.handle(req, res);
-})
+});
 
-
-
-export { categoriesRoutes }
+export { categoriesRoutes };
