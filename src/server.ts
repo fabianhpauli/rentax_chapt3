@@ -6,7 +6,8 @@ import "./database";
 
 import "./shared/container";
 
-import { AppError } from "./errors/AppErrors";
+import { AppError } from "@errors/AppErrors";
+
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
 

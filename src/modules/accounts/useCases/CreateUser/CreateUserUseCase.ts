@@ -1,15 +1,15 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "../../../../errors/AppErrors";
-import { ICreateUserDTO } from "../../../dtos/ICreateUserDTO";
-import { UsersRepository } from "../../repositories/implementations/UsersRepository";
+import { AppError } from "@errors/AppErrors";
+import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 
 @injectable()
-class CreateCategoryUseCase {
+class CreateUserUseCase {
     constructor(
         @inject("UsersRepository")
-        private usersRepository: UsersRepository
+        private usersRepository: IUsersRepository
     ) {}
     async execute({
         name,
@@ -34,4 +34,4 @@ class CreateCategoryUseCase {
     }
 }
 
-export { CreateCategoryUseCase };
+export { CreateUserUseCase };
